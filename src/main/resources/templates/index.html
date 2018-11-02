@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8"/>
+<title>Benali</title>
+     <link rel="stylesheet" content-type ="text/css"
+           href="../static/css/styles.css"
+           th:href="@{../static/css/styles.css}"/> 
+           
+
+</head>
+<body>
+<div class="topnav">
+  <a class="active" th:href="@{/home}">Home</a>
+  <a th:href="@{/about}">A Propos</a>
+  <a th:href="@{/contact}">Contact</a>
+  <a th:href="@{/inscription}">Inscription</a>
+  <a th:href="@{/connexion}">Connexion</a>
+  <div class="search-container">
+   <form th:action="@{/rechercher}">
+     <input type="text" placeholder="Search.." name="search"></input>
+     <button type="submit"><i class="fa fa-search">Submit!</i></button>
+   </form>
+  </div>
+</div>
+<div class="topnav" id="bas">
+<div class="tab1">
+  <a class="tablinks" th:href="@{/test1}">London</a>
+  <a class="tablinks" th:href="@{/test4}">Rabat</a>
+</div>
+<div class="tab2">
+  <a class="tablinks" th:href="@{/test2}">Paris</a>
+  <a class="tablinks" th:href="@{/test5}">New-York</a>
+</div>
+<div class="tab3">
+  <a class="tablinks" th:href="@{/test3}">Tokyo	</a>
+  <a class="tablinks" th:href="@{/test6}">Sex</a>
+</div>
+</div>
+
+
+<script>
+</script>
+</body>
+
+</html>
