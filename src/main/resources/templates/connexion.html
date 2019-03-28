@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+      <th:block th:include="@{/_templateHeader}"></th:block>  
+<!-- <form th:action="@{/connexion}" method="post" th:object="${user}"> -->
+<form th:action="@{/connexion}" method="post">
+<div class="tab4">
+<p>Pseudo</p>
+<!-- <input type="text" th:field="*{pseudo}"></input> -->
+<input type="text" name="username"/>
+<p>PassWord</p>
+<!-- <input type="password" th:field="*{passWord}"></input> -->
+<input type="password" name="password"/>
+<input type="submit" value="Connexion"></input>
+</div>
+<div></div>
+</form>
+</body>
+</html>

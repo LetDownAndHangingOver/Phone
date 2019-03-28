@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8"/>
+<title>Phones</title>
+     <link rel="stylesheet" 
+           th:href="@{../static/css/style.css}"/> 
+<style type="text/css">
 * {box-sizing: border-box;}
 
 body {
@@ -72,3 +81,22 @@ body {
     border: 1px solid #ccc;  
   }
 }
+</style>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" th:href="@{/home}">Home</a>
+  <a th:href="@{/about}">A Propos</a>
+  <a th:href="@{/contact}">Contact</a>
+  
+  <a th:href="@{/inscription}">Inscription</a>
+  <a th:href="@{/connexion}">Connexion</a>
+  <div class="search-container">
+   <form th:action="@{/rechercher}">
+     <input type="text" placeholder="Search.." name="search"></input>
+     <button type="submit"><i class="fa fa-search">Submit!</i></button>
+   </form>
+  </div>
+</div>
+</body>
+</html>

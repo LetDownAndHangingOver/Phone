@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"/>
+<title>Insert title here</title>
+</head>
+<body>
+<th:block th:include="@{/l/_templateHeader2}"></th:block>  
+<table>
+	<tr>
+		<th>Nom produit</th>
+		<th>Prix</th>
+		<th>Photo</th>
+	</tr>
+	<tr th:each="produit : ${produit}">
+		<td th:text="${produit.nomProduit}"></td>
+		<td th:text="${produit.prix}"></td>
+		<td th:if="${produit.photoProduit} == Null"><a href="/l/ajouterPhoto">Ajouter photo</a></td>
+		<td th:if="${produit.photoProduit} != Null"><img th:src="${produit.photoProduit}" th:alt="${produit.nomProduit}"/></td>
+		
+	</tr>
+</table>
+</body>
+</html>

@@ -3,6 +3,8 @@ package com.benali.entitites;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -10,6 +12,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Produit implements Serializable{
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idProduit;
 	private String nomProduit;
 	private String photoProduit;
@@ -22,10 +25,11 @@ public class Produit implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Produit(Long idProduit, String nomProduit) {
+	public Produit(Long idProduit, String nomProduit, User u) {
 		super();
 		this.idProduit = idProduit;
 		this.nomProduit = nomProduit;
+		this.user = u;
 	}
 	public Long getIdProduit() {
 		return idProduit;

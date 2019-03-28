@@ -6,51 +6,77 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
 public class User implements Serializable{
 	@Id
-	private String Pseudo;
-	private String PassWord;
-	private String Mail;
-	private String Photo;
+	private String pseudo;
+	private String passWord;
+	private String mail;
+	private String photo;
+	private boolean actived;
+	
+	public User(String pseudo, String passWord, String mail, boolean actived) {
+		super();
+		this.pseudo = pseudo;
+		this.passWord = passWord;
+		this.mail = mail;
+		this.actived = actived;
+	}
+	public boolean isActived() {
+		return actived;
+	}
+	public void setActived(boolean actived) {
+		this.actived = actived;
+	}
 	@OneToMany(mappedBy="user", fetch=FetchType.LAZY)
 	private Collection<Produit> produits;
+	@ManyToMany
+	@JoinTable(name="USERS_ROLES")
+	private Collection<Role> roles;
 	
+	public Collection<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(Collection<Role> roles) {
+		this.roles = roles;
+	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public User(String pseudo, String passWord, String mail) {
 		super();
-		Pseudo = pseudo;
-		PassWord = passWord;
-		Mail = mail;
+		this.pseudo = pseudo;
+		this.passWord = passWord;
+		this.mail = mail;
 	}
 	public String getPseudo() {
-		return Pseudo;
+		return pseudo;
 	}
 	public void setPseudo(String pseudo) {
-		Pseudo = pseudo;
+		this.pseudo = pseudo;
 	}
 	public String getPassWord() {
-		return PassWord;
+		return passWord;
 	}
 	public void setPassWord(String passWord) {
-		PassWord = passWord;
+		this.passWord = passWord;
 	}
 	public String getMail() {
-		return Mail;
+		return mail;
 	}
 	public void setMail(String mail) {
-		Mail = mail;
+		this.mail = mail;
 	}
 	public String getPhoto() {
-		return Photo;
+		return photo;
 	}
 	public void setPhoto(String photo) {
-		Photo = photo;
+		this.photo = photo;
 	}
 	public Collection<Produit> getProduits() {
 		return produits;
@@ -58,6 +84,7 @@ public class User implements Serializable{
 	public void setProduits(Collection<Produit> produits) {
 		this.produits = produits;
 	} 
+	
 
 	
 }

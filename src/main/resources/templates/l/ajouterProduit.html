@@ -14,17 +14,13 @@
 
       <th:block th:include="/_templateHeader"></th:block>  
       
-<form action="#" th:action="@{/inscription}" method="post"  th:object="${user}">
+<form action="#" th:action="@{/l/ajouterProduit}" method="post"  th:object="${produit}">
   <div class="tab4">
-    <p id="ins">Pseudo</p>
-    <input type="text" th:field="*{pseudo}"/>
-    <p id="ins">Password</p>
-    <input type="password" th:field="*{passWord}"/>
-<!--     <p id="ins">Confirmation Password</p> -->
-<!--     <input type="password" th:field="*{passWord}"/> -->
-    <p id="ins">Adresse email</p>
-    <input type="email" th:field="*{mail}" />
-    <input type="submit" value="Inscription"/>
+    <p id="ins">Libellé</p>
+    <input type="text" th:field="*{nomProduit}"/>
+    <p id="ins">Prix</p>
+    <input type="text" th:field="*{prix}"/>
+    <input type="submit" value="Ajouter"/>
   </div>
 </form>
 

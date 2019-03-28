@@ -11,12 +11,12 @@
 
 </head>
 <body>
-      <th:block th:include="/_templateHeader"></th:block>  
+      <th:block th:include="/l/_templateHeader2"></th:block>  
 
 <div class="topnav" id="bas">
 <div class="tab1">
-  <a class="tablinks" th:href="@{/test1}">London</a>
-  <a class="tablinks" th:href="@{/test4}">Rabat</a>
+  <a class="tablinks" th:href="@{/l/ajouterProduit}">Ajouter un produit</a>
+  <a class="tablinks" th:href="@{/listProduit}">Tous les produits</a>
 </div>
 <div class="tab2">
   <a class="tablinks" th:href="@{/test2}">Paris</a>
@@ -27,7 +27,18 @@
   <a class="tablinks" th:href="@{/test6}">Lkhobz</a>
 </div>
 </div>
-
+<table>
+	<tr>
+		<th>Nom produit</th>
+		<th>Prix</th>
+		<th>Photo</th>
+	</tr>
+	<tr th:each="produit : ${produit}">
+		<td th:text="${produit.nomProduit}"></td>
+		<td th:text="${produit.prix}"></td>
+		<td><a href="/l/ajouterPhoto">Ajouter photo</a></td>
+	</tr>
+</table>
 
 <script>
 </script>

@@ -4,19 +4,19 @@
 <head>
 <meta charset="utf-8"/>
 <title>Benali</title>
-     <link rel="stylesheet" content-type ="text/css"
-           href="../static/css/styles.css"
-           th:href="@{../static/css/styles.css}"/> 
+<!--      <link rel="stylesheet" type ="text/css" -->
+<!--            href="../static/css/styles.css" -->
+<!--            th:href="@{../static/css/styles.css}"/>  -->
            
 
 </head>
 <body>
-      <th:block th:include="/_templateHeader"></th:block>  
+      <th:block th:include="@{/l/_templateHeader2}"></th:block>  
 
 <div class="topnav" id="bas">
 <div class="tab1">
-  <a class="tablinks" th:href="@{/test1}">London</a>
-  <a class="tablinks" th:href="@{/test4}">Rabat</a>
+  <a class="tablinks" th:href="@{/l/ajouterProduit}">Ajouter un produit</a>
+  <a class="tablinks" th:href="@{/l/listproduits}">Tous les produits</a>
 </div>
 <div class="tab2">
   <a class="tablinks" th:href="@{/test2}">Paris</a>

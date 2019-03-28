@@ -11,6 +11,6 @@ import com.benali.entitites.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String>{
-	@Query("select u from User u where u.Pseudo like %:x%")
+	@Query("select u from User u where u.pseudo like %:x%")
 	public List<User> findByKW(@Param("x")String KW);
 }
