@@ -10,24 +10,17 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
-				<th:select class="form-control">
-					<!-- 					<option>Samsung</option> -->
-					<!-- 					<option>Apple</option> -->
-					<!-- 					<option>Nokia</option> -->
-					<!-- 					<option>ZTE</option> -->
-					<!-- 					<option>LG</option> -->
-					<!-- 					<option>Huawei</option> -->
-					<!-- 					<option>BlackBerry</option> -->
-					<!-- 					<option>Motorola</option> -->
-					<!-- 					<option>Sony</option> -->
-					<!-- 					<option>Htc</option> -->
-					<th:options items=${produit.nom} />
-					</select>
-			</div>
 			<form action="#" th:action="@{/l/com}" method="post"
-				modelAttribute="phone1">
-				<input type="submit" />
+				th:object="${SmartphoneDB}">
+				<select class="form-control">
+					<option value="">--</option>
+					<option th:each="smart : ${smarts}"
+							 th:value="${smart.nomSmartPhone}" 
+							 th:text="${smart.nomSmartPhone}"/>
+				</select>
+				<input type="submit" />					
 			</form>
+			</div>
 		</div>
 	</div>
 </body>

@@ -36,9 +36,13 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 //import ch.qos.logback.access.pattern.RequestMethodConverter;
 
+
+
 import com.benali.entitites.Produit;
+import com.benali.entitites.SmartphoneDB;
 import com.benali.entitites.User;
 import com.benali.metier.ProduitMetier;
+import com.benali.metier.SmartPhoneMetier;
 import com.benali.metier.UserMetier;
 
 @Controller
@@ -47,6 +51,8 @@ public class ProduitController {
 	private ProduitMetier PM;
 	@Autowired
 	private UserMetier UM;
+	@Autowired
+	private SmartPhoneMetier SM;
 	private static String UPLOADED_FOLDER = "C:\\Users\\BMW\\Documents\\Upload\\";
 
 	@RequestMapping(path="/listProduit")
@@ -85,8 +91,10 @@ public class ProduitController {
 	}
 	@RequestMapping(path="/l/comparateur", method=RequestMethod.GET)
 	public String comparateur(Model model){
-		List<Produit> products = PM.listAllProduits();
-		model.addAttribute("produit", products);
+		SmartphoneDB sdb = new SmartphoneDB();
+		model.addAttribute("smartphoneDB", sdb);
+		List<SmartphoneDB> smarts = SM.listAllSmartphone();
+		model.addAttribute("smarts", smarts);
 		return "/l/comparateur";
 	}
 	@RequestMapping(path="/l/com", method=RequestMethod.POST)
