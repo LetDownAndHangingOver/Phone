@@ -63,6 +63,14 @@ public class HomeController {
 		model.addAttribute("users", users);
 		return "rechercher";
 	}
+	@RequestMapping(path="/l/rechercher")
+	public String recherche(Model model, String search){
+		List<User> users = UM.findByKW(search);
+		List<Produit> produits = PM.findProduit(search);
+		model.addAttribute("produits", produits);
+		model.addAttribute("users", users);
+		return "l/recherche";
+	}
 
 	@RequestMapping(path="/fail")
 	public String fail(){

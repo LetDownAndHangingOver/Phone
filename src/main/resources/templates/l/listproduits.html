@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1"/>
-<title>Insert title here</title>
+<meta charset="ISO-8859-1" />
+<title>Phones</title>
 </head>
 <body>
-<th:block th:include="@{/l/_templateHeader2}"></th:block>  
-<table>
-	<tr>
-		<th>Nom produit</th>
-		<th>Prix</th>
-		<th>Photo</th>
-	</tr>
-	<tr th:each="produit : ${produit}">
-		<td th:text="${produit.nomProduit}"></td>
-		<td th:text="${produit.prix}"></td>
-		<td th:if="${produit.photoProduit} == Null"><a href="/l/ajouterPhoto">Ajouter photo</a></td>
-		<td th:if="${produit.photoProduit} != Null"><img th:src="${produit.photoProduit}" th:alt="${produit.nomProduit}"/></td>
-		
-	</tr>
-</table>
+	<th:block th:include="@{/l/_templateHeader2}"></th:block>
+	<br></br>
+	<br></br>
+	<h1 class="text-center">Liste des produits</h1>
+	<div class="container">
+		<table class="table table-dark">
+			<thead class="thead-light">
+				<tr>
+					<th>Nom produit</th>
+					<th>Prix</th>
+					<th>Photo</th>
+					<th>Info</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produit : ${produit}">
+					<td th:text="${produit.nomProduit}"></td>
+					<td th:text="${produit.prix}"></td>
+					<td th:if="${produit.photoProduit} == Null">Pas de photo
+						disponible</td>
+					<td th:if="${produit.photoProduit} != Null"><img
+						th:src="${produit.photoProduit}" /></td>
+					<td><a
+						th:href="@{/l/prod/{ProduitId}(ProduitId=${produit.idProduit})}">Plus
+							d'info</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

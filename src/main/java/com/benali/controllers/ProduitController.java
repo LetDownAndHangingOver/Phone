@@ -25,6 +25,7 @@ import org.springframework.security.core.context.SecurityContextHolderStrategy;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,6 +33,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+//import ch.qos.logback.access.pattern.RequestMethodConverter;
 
 import com.benali.entitites.Produit;
 import com.benali.entitites.User;
@@ -58,6 +61,12 @@ public class ProduitController {
 		model.addAttribute("produit", products);
 		return "/l/listproduits";
 	}
+	@RequestMapping(path="/l/prod/{id}")
+	public String getProduitId(@PathVariable Long id, Model model){
+		Produit p = PM.findProduitById(id);
+		model.addAttribute("prod", p);
+		return "/l/prod";
+	}
 	@RequestMapping(path="/l/ajouterProduit")
 	public String ajouterProduit(Model model){
 		model.addAttribute("produit", new Produit());
@@ -73,6 +82,16 @@ public class ProduitController {
 //		produit.setUser(user);
 		PM.saveProduit(produit);
 		return "/l/produit";
+	}
+	@RequestMapping(path="/l/comparateur", method=RequestMethod.GET)
+	public String comparateur(Model model){
+		List<Produit> products = PM.listAllProduits();
+		model.addAttribute("produit", products);
+		return "/l/comparateur";
+	}
+	@RequestMapping(path="/l/com", method=RequestMethod.POST)
+	public String com(){
+		return "/l/com";
 	}
 //	@RequestMapping(path="/l/ajouterPhoto", method=RequestMethod.POST)
 //	public String uploadFile(@RequestParam("file") MultipartFile file, Model model){

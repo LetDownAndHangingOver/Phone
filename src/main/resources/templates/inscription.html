@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
 <head>
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <title>Benali</title>
-     <link rel="stylesheet" content-type ="text/css"
-           href="../static/css/styles.css"
-           th:href="@{../static/css/styles.css}"/> 
-           
+<link rel="stylesheet" content-type="text/css"
+	href="../static/css/styles.css" th:href="@{../static/css/styles.css}" />
+
 
 </head>
 <body>
 
-      <th:block th:include="/_templateHeader"></th:block>  
-      
-<form action="#" th:action="@{/inscription}" method="post"  th:object="${user}">
-  <div class="tab4">
-    <p id="ins">Pseudo</p>
-    <input type="text" th:field="*{pseudo}"/>
-    <p id="ins">Password</p>
-    <input type="password" th:field="*{passWord}"/>
-<!--     <p id="ins">Confirmation Password</p> -->
-<!--     <input type="password" th:field="*{passWord}"/> -->
-    <p id="ins">Adresse email</p>
-    <input type="email" th:field="*{mail}" />
-    <input type="submit" value="Inscription"/>
-  </div>
-</form>
+	<th:block th:include="/_templateHeader"></th:block>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5 mx-auto">
+				<div id="first">
+					<div class="myform form ">
+						<div class="logo mb-3">
+							<div class="col-md-12 text-center">
+								<h1>Inscription</h1>
+							</div>
+						</div>
+						<form th:action="@{/inscription}" method="post"
+							th:object="${user}">
+							<div class="form-group">
+								<label for="exampleInputEmail1">Username</label> <input
+									type="text" name="username" class="form-control" id="email"
+									aria-describedby="emailHelp" placeholder="Username"
+									th:field="*{pseudo}" />
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Email</label> <input
+									type="email" name="email" id="email" class="form-control"
+									aria-describedby="emailHelp" placeholder="Email"
+									th:field="*{mail}" />
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Password</label> <input
+									type="password" name="password" id="password"
+									class="form-control" aria-describedby="emailHelp"
+									placeholder="Enter Password" th:field="*{passWord}" />
+							</div>
+							<div class="col-md-12 text-center ">
+								<button type="submit"
+									class=" btn btn-block mybtn btn-primary tx-tfm">Inscription</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-<script>
+
+	<script>
 </script>
 </body>
 

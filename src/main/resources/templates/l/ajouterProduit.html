@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
 <head>
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <title>Benali</title>
-     <link rel="stylesheet" content-type ="text/css"
-           href="../static/css/styles.css"
-           th:href="@{../static/css/styles.css}"/> 
-           
+<link rel="stylesheet" content-type="text/css"
+	href="../static/css/styles.css" th:href="@{../static/css/styles.css}" />
+
 
 </head>
 <body>
 
-      <th:block th:include="/_templateHeader"></th:block>  
-      
-<form action="#" th:action="@{/l/ajouterProduit}" method="post"  th:object="${produit}">
-  <div class="tab4">
-    <p id="ins">Libellé</p>
-    <input type="text" th:field="*{nomProduit}"/>
-    <p id="ins">Prix</p>
-    <input type="text" th:field="*{prix}"/>
-    <input type="submit" value="Ajouter"/>
-  </div>
-</form>
+	<th:block th:include="/_templateHeader"></th:block>
+
+	<form action="#" th:action="@{/l/ajouterProduit}" method="post"
+		th:object="${produit}">
+		<div class="tab4">
+			<p id="ins">Libellé</p>
+			<input type="text" th:field="*{nomProduit}" />
+			<p id="ins">Prix</p>
+			<input type="text" th:field="*{prix}" /> <input type="submit"
+				value="Ajouter" />
+		</div>
+	</form>
 
 
-<script>
+	<script>
 </script>
 </body>
 

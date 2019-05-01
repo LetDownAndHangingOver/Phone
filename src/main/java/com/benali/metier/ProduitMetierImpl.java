@@ -32,4 +32,9 @@ public class ProduitMetierImpl implements ProduitMetier{
 		PR.delete(p);
 	}
 
+	@Override
+	public Produit findProduitById(Long id) {
+		return PR.findOne(id);
+	}
+
 }

@@ -20,6 +20,7 @@ public class Produit implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="nomUser")
 	private User user;
+	private String description;
 	
 	public Produit() {
 		super();
@@ -54,6 +55,12 @@ public class Produit implements Serializable{
 	}
 	public void setPrix(String prix) {
 		this.prix = prix;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public User getUser() {
 		return user;

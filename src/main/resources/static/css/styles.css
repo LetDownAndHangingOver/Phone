@@ -1,180 +1,175 @@
-* {box-sizing: border-box;}
+.custab {
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin: 5% 0;
+	box-shadow: 3px 3px 2px #ccc;
+	transition: 0.5s;
+}
+
+.custab:hover {
+	box-shadow: 3px 3px 0px transparent;
+	transition: 0.5s;
+}
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+	padding-top: 4.2rem;
+	padding-bottom: 4.2rem;
+	background: rgba(0, 0, 0, 0.76);
 }
 
-.topnav {
-  overflow: hidden;
-  background-color: #e9e9e9;
+a {
+	text-decoration: none !important;
 }
 
-.topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
+h1, h2, h3 {
+	font-family: 'Kaushan Script', cursive;
+	color: #d7d7d7;
 }
 
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
+.myform {
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1rem;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	pointer-events: auto;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, .2);
+	border-radius: 1.1rem;
+	outline: 0;
+	max-width: 500px;
 }
 
-.topnav a.active {
-  background-color: #2196F3;
-  color: white;
+.tx-tfm {
+	text-transform: uppercase;
 }
-.topnav .ins-con {
+
+.mybtn {
+	border-radius: 50px;
+}
+
+.login-or {
+	position: relative;
+	color: #aaa;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.span-or {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: -2px;
+	margin-left: -25px;
+	background-color: #fff;
+	width: 50px;
+	text-align: center;
+}
+
+.hr-or {
+	height: 1px;
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.google {
+	color: #666;
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	outline: none;
+	border: 1px solid lightgrey;
+}
+
+form .error {
+	color: #ff0000;
+}
+
+#second {
+	display: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+td {
+	color: #d7d7d7;
+}
+/*  .container {  */
+/*    overflow: hidden;  */
+/*    background-color: #696969;  */
+/*  }  */
+.container a {
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.container a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.container a.active {
+	background-color: #2196F3;
+	color: white;
+}
+
+.container .search-container {
 	float: right;
 }
-.topnav .search-container {
-  float: right;
+
+.container input[type=text] {
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 17px;
+	border: none;
 }
 
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
+.container .search-container button {
+	float: right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
 }
 
-.topnav .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
+.container .search-container button:hover {
+	background: #ccc;
 }
 
 @media screen and (max-width: 600px) {
-  .topnav .search-container {
-    float: none;
-  }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}
-
-* {box-sizing: border-box}
-body {font-family: "Lato", sans-serif;}
-
-/* Style the tab */
-.topnav #bas{
-	display: inline;
-    float: left;
-    border: 1px solid #ccc;
-    background-color: #d7d7d7;
-    width: 90%;
-    height: 300px;
-}
-
-/* Style the buttons inside the tab */
-.tab1 a {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 30%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 22px;
-}
-.tab4  {
-	position: fixed;
-	right: 40%;
-	display: block;
-    background-color: #008ed2;
-    color: black;
-    padding: 0px 14mm;
-    width: 25%;
-    height: 240px;
-    border: none;
-    outline: none;
-    text-align: left;
-    font-size: 22px;
-}
- #ins{
-	padding: 0px 15mm;
-	width: 100%;
-	display: block;
-	color: black;
-	font-size: 15px;
-	
-}
-.tab2 a {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 30%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 22px;
-}
-.tab3 a {
-    display: block;
-    background-color: inherit;
-    color: black;
-    padding: 22px 16px;
-    width: 30%;
-    border: none;
-    outline: none;
-    text-align: left;
-    cursor: pointer;
-    font-size: 22px;
-}
-/* Change background color of buttons on hover */
-.tab a:hover {
-    background-color: #2196F3;
-    color: white;
-}
-.a #ins{
-color: white;
-}
-
-/* Create an active/current "tab button" class */
-.tab a.active {
-    background-color: #0080ff;
-}
-
-/* Style the tab content */
-.tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 70%;
-    border-left: none;
-    height: 300px;
-    display: none;
-}
-
-/* Clear floats after the tab */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
+	.topnav .search-container {
+		float: none;
+	}
+	.container a, .topnav input[type=text], .topnav .search-container button
+		{
+		float: none;
+		display: block;
+		text-align: left;
+		width: 100%;
+		margin: 0;
+		padding: 14px;
+	}
+	.container input[type=text] {
+		border: 1px solid #ccc;
+	}
 }

@@ -1,35 +1,80 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
 <head>
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <title>Benali</title>
-     <link rel="stylesheet" content-type ="text/css"
-           href="../static/css/styles.css"
-           th:href="@{../static/css/styles.css}"/> 
-           
+<link rel="stylesheet" content-type="text/css"
+	href="../static/css/styles.css" th:href="@{../static/css/styles.css}" />
+
 
 </head>
 <body>
-      <th:block th:include="/_templateHeader"></th:block>  
+	<th:block th:include="/_templateHeader"></th:block>
+	<br></br>
+	<br></br>
+	<br></br>
+	<div class="container">
+		<div class="jumbotron">
+			<p class="text-center">Salut</p>
+		</div>
+	</div>
 
-<div class="topnav" id="bas">
-<div class="tab1">
-  <a class="tablinks" th:href="@{/test1}">London</a>
-  <a class="tablinks" th:href="@{/test4}">Rabat</a>
-</div>
-<div class="tab2">
-  <a class="tablinks" th:href="@{/test2}">Paris</a>
-  <a class="tablinks" th:href="@{/test5}">New-York</a>
-</div>
-<div class="tab3">
-  <a class="tablinks" th:href="@{/test3}">Tokyo	</a>
-  <a class="tablinks" th:href="@{/test6}">Lkhobz</a>
-</div>
-</div>
+	<div class="container">
+		<hr class="my-2">
+		</hr>
+		<div class="row">
+			<div class="col">
+				<a class="tablinks" th:href="@{/test1}">London</a>
+			</div>
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Casablanca</a>
+			</div>
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Oujda</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">New-York</a>
+			</div>
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Barcelona</a>
+			</div>
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Bit el ma</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Torino</a>
+			</div>
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Tokyo</a>
+			</div>
+			<div class="col">
+				<a class="tablinks" th:href="@{/test4}">Beijing</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div class="topnav" id="bas"> -->
+	<!-- <div class="tab1"> -->
+	<!--   <a class="tablinks" th:href="@{/test1}">London</a> -->
+	<!--   <a class="tablinks" th:href="@{/test4}">Rabat</a> -->
+	<!-- </div> -->
+	<!-- <div class="tab2"> -->
+	<!--   <a class="tablinks" th:href="@{/test2}">Paris</a> -->
+	<!--   <a class="tablinks" th:href="@{/test5}">New-York</a> -->
+	<!-- </div> -->
+	<!-- <div class="tab3"> -->
+	<!--   <a class="tablinks" th:href="@{/test3}">Tokyo	</a> -->
+	<!--   <a class="tablinks" th:href="@{/test6}">Lkhobz</a> -->
+	<!-- </div> -->
+	<!-- </div> -->
 
 
-<script>
+	<script>
 </script>
 </body>
 
