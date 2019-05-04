@@ -84,23 +84,10 @@ public class ProduitController {
 		String pseudo = auth.getName();
 		User user = UM.findUser(pseudo);
 		produit.setUser(user);
-//		System.out.println(user.getPseudo());
-//		produit.setUser(user);
 		PM.saveProduit(produit);
 		return "/l/produit";
 	}
-	@RequestMapping(path="/l/comparateur", method=RequestMethod.GET)
-	public String comparateur(Model model){
-		SmartphoneDB sdb = new SmartphoneDB();
-		model.addAttribute("smartphoneDB", sdb);
-		List<SmartphoneDB> smarts = SM.listAllSmartphone();
-		model.addAttribute("smarts", smarts);
-		return "/l/comparateur";
-	}
-	@RequestMapping(path="/l/com", method=RequestMethod.POST)
-	public String com(){
-		return "/l/com";
-	}
+
 //	@RequestMapping(path="/l/ajouterPhoto", method=RequestMethod.POST)
 //	public String uploadFile(@RequestParam("file") MultipartFile file, Model model){
 //		try {

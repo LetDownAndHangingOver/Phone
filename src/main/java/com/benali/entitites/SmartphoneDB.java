@@ -20,11 +20,11 @@ public class SmartphoneDB implements Serializable{
 		super();
 	}
 	public SmartphoneDB(String nomSmartPhone, int prixSmartPhone,
-			String rAMSmartPhone) {
+			String RAMSmartPhone) {
 		super();
 		this.nomSmartPhone = nomSmartPhone;
 		this.prixSmartPhone = prixSmartPhone;
-		RAMSmartPhone = rAMSmartPhone;
+		this.RAMSmartPhone = RAMSmartPhone;
 	}
 	public Long getIdSmartPhone() {
 		return idSmartPhone;
