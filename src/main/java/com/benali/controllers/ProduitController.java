@@ -51,8 +51,7 @@ public class ProduitController {
 	private ProduitMetier PM;
 	@Autowired
 	private UserMetier UM;
-	@Autowired
-	private SmartPhoneMetier SM;
+
 	private static String UPLOADED_FOLDER = "C:\\Users\\BMW\\Documents\\Upload\\";
 
 	@RequestMapping(path="/listProduit")
