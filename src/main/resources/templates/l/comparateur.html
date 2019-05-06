@@ -10,13 +10,19 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6">
-			<form action="#" th:action="@{/l/comparateur2}" method="post"
-				th:object="${sdb}">
-				<select class="form-control" th:field="*{idSmartPhone}">
+			<form action="#" th:action="@{/l/com}" method="post"
+				th:object="${comp}">
+				<select class="form-control" th:field="*{idsmart1}">
 					<option value="">--</option>
 					<option th:each="smart : ${smarts}"
 							 th:value="${smart.idSmartPhone}" 
 							 th:text="${smart.nomSmartPhone}"/>
+				</select>
+				<select class="form-control" th:field="*{idsmart2}">
+					<option value="">--</option>
+					<option th:each="smart2 : ${smarts}"
+							th:value="${smart2.idSmartPhone}"
+							th:text="${smart2.nomSmartPhone}"/>
 				</select>
 				<input type="submit" />					
 			</form>

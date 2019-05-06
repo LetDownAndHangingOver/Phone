@@ -29,11 +29,13 @@
 		<div class="row">
 			<div class="col-lg-6">
 			<form action="#" th:action="@{/l/com}" method="post"
-				th:object="${sdb2}">
-				<select class="form-control" th:field="*{idSmartPhone}">
+				th:object="${compsdb}">
+				<input type="text" th:value="${smarts1.idSmartPhone}" 
+				th:text="${smarts1.idSmartPhone}" th:field="*{idsmart2}"/>
+				<select class="form-control" th:field="*{idsmart1}">
 					<option value="">--</option>
 					<option th:each="smart : ${smarts2}"
-							 th:value="${smart.nomSmartPhone}" 
+							 th:value="${smart.idSmartPhone}" 
 							 th:text="${smart.nomSmartPhone}"/>
 				</select>
 				<input type="submit" />					

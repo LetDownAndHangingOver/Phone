@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.benali.entitites.ComparateurForm;
 import com.benali.entitites.SmartphoneDB;
 import com.benali.metier.SmartPhoneMetier;
 
@@ -21,20 +22,29 @@ public class SmartphoneController {
 	public String comparateur(Model model){
 		List<SmartphoneDB> smarts = SM.listAllSmartphone();
 		model.addAttribute("smarts", smarts);
-		model.addAttribute("sdb", new SmartphoneDB());
+		model.addAttribute("comp", new ComparateurForm());
 		return "/l/comparateur";
 	}
 	@RequestMapping(path="/l/comparateur2", method=RequestMethod.POST)
 	public String comparateur2(Model model, SmartphoneDB sdb){
 		SmartphoneDB s = SM.findProduitById(sdb.getIdSmartPhone());
 		List<SmartphoneDB> smarts2 = SM.listAllSmartphone();
+		model.addAttribute("sdb2", new SmartphoneDB());
+		model.addAttribute("sdb1", sdb);
 		model.addAttribute("smarts1", s);
 		model.addAttribute("smarts2", smarts2);
+		model.addAttribute("compsdb", new ComparateurForm());
 		return "/l/comparateur2";
 	}
-	@RequestMapping(path="/l/com")
-	public String com(Model model, SmartphoneDB sdb2){
-		SmartphoneDB s2 = SM.findProduitById(sdb2.getIdSmartPhone());
+	@RequestMapping(path="/l/com", method=RequestMethod.POST)
+	public String com(Model model, SmartphoneDB smarts1, SmartphoneDB sdb2, ComparateurForm comp){
+		System.out.println("test1"+comp.getIdsmart1());
+		System.out.println("test2"+comp.getIdsmart2());
+		SmartphoneDB s1 = SM.findProduitById(comp.getIdsmart1());
+		SmartphoneDB s2 = SM.findProduitById(comp.getIdsmart2());
+		System.out.println(s1.getNomSmartPhone());
+		System.out.println(s2.getNomSmartPhone());
+		model.addAttribute("smart", s1);
 		model.addAttribute("smart2", s2);
 		return "/l/com";
 	}
