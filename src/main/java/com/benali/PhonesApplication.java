@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.benali.dao.UserRepository;
 
-@ComponentScan
 @SpringBootApplication
 public class PhonesApplication {
 
