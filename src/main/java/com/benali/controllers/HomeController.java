@@ -139,7 +139,7 @@ public class HomeController {
 		msg.setFrom(new InternetAddress(emailContact, false));
 		msg.setRecipients(Message.RecipientType.TO,
 				InternetAddress.parse("benalimoe@gmail.com"));
-		msg.setSubject("Test message from "+nomContact+" /phones contact");
+		msg.setSubject("Test message from "+nomContact+"/phones contact");
 		msg.setContent(nomContact+" : "+emailContact+"\n"+message, "text/html");
 		msg.setSentDate(new Date());
 
@@ -147,6 +147,10 @@ public class HomeController {
 		}catch(MessagingException me){
 			System.out.println(me);
 		}
+	}
+	@RequestMapping(path="/l/chat", method=RequestMethod.GET)
+	public String chat(){
+		return "/l/ChatClient";
 	}
 
 }

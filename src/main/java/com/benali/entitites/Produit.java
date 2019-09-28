@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Produit implements Serializable{
 	@Id
@@ -19,6 +21,7 @@ public class Produit implements Serializable{
 	private String prix;
 	@ManyToOne
 	@JoinColumn(name="nomUser")
+	@JsonIgnore
 	private User user;
 	private String description;
 	
