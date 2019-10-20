@@ -3,6 +3,8 @@ package com.benali.metier;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.benali.dao.ProduitRepository;
@@ -18,8 +20,8 @@ public class ProduitMetierImpl implements ProduitMetier{
 	}
 
 	@Override
-	public List<Produit> listAllProduits() {
-		return PR.findAll();
+	public Page<Produit> listAllProduits(Pageable page) {
+		return PR.getAllProduits(page);
 	}
 
 	@Override
@@ -36,5 +38,6 @@ public class ProduitMetierImpl implements ProduitMetier{
 	public Produit findProduitById(Long id) {
 		return PR.findOne(id);
 	}
+
 
 }

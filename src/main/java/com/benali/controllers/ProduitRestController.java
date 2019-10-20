@@ -19,16 +19,17 @@ import com.benali.excel.ExcelGenerator;
 import com.benali.metier.ProduitMetier;
 
 @RestController
+@RequestMapping("/l")
 public class ProduitRestController {
 	@Autowired
 	ProduitMetier PM;
 	@Autowired
 	ExcelGenerator eg;
-	@RequestMapping("/total")
-	public List<Produit> total (){
-		List<Produit> products = PM.listAllProduits();
-		return products;
-	}
+//	@RequestMapping("/total")
+//	public List<Produit> total (){
+//		List<Produit> products = PM.listAllProduits();
+//		return products;
+//	}
 	@GetMapping(value="/download")
 	public ResponseEntity<InputStreamResource> excelCustoersReport(){
 		//list of phones
