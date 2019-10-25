@@ -36,12 +36,13 @@
 	<!-- 			</tbody> -->
 	<!-- 		</table> -->
 	<!-- 	</div> -->
-	<div class="row"
-		th:if="${!produitList.isEmpty()}">
+	<form action="#" th:action="@{/l/download}" method="get"
+				>
+		<input type="submit" value="Download"/>
+	<div class="row" th:if="${!produitList.isEmpty()}">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<table id="link-list" class="table table-dark"
-				style="width: 100%">
+			<table id="link-list" class="table table-dark" style="width: 100%">
 				<thead class="thead-light">
 					<tr>
 						<th>Nom</th>
@@ -61,18 +62,21 @@
 		</div>
 		<div class="col-md-2"></div>
 	</div>
+	</form>
+	
 	<div class="row" th:fragment="pagination">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <nav aria-label="Pagination">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item" th:each="pageNumber : ${pageNumbers}" >
-                        <a class="page-link" th:href="@{|/l/listproduits/${pageNumber}|}" th:text="${pageNumber}"></a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-        <div class="col-md-2"></div>
-</div>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<nav aria-label="Pagination">
+				<ul class="pagination justify-content-center">
+					<li class="page-item" th:each="pageNumber : ${pageNumbers}">
+						<a class="page-link" th:href="@{|/l/listproduits/${pageNumber}|}"
+						th:text="${pageNumber}"></a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
 </body>
 </html>

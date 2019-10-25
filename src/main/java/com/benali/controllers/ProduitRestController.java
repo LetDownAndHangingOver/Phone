@@ -10,15 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.benali.entitites.Produit;
 import com.benali.excel.ExcelGenerator;
+import com.benali.excel.ExcelPhone;
 import com.benali.metier.ProduitMetier;
 
-@RestController
+@Controller
 @RequestMapping("/l")
 public class ProduitRestController {
 	@Autowired
@@ -30,11 +33,11 @@ public class ProduitRestController {
 //		List<Produit> products = PM.listAllProduits();
 //		return products;
 //	}
-	@GetMapping(value="/download")
-	public ResponseEntity<InputStreamResource> excelCustoersReport(){
+	@GetMapping(value="/l/download")
+	public ResponseEntity<InputStreamResource> excelCustoersReport(List<ExcelPhone> listPhones){
 		//list of phones
 		ByteArrayInputStream in;
-			in = eg.generateExcel();
+			in = eg.generateExcel(listPhones);
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Disposition", "attachement; filename=generatedPhones.xlsx");
 		return ResponseEntity.ok().headers(headers).body(new InputStreamResource(in));

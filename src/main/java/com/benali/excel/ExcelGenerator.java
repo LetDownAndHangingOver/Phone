@@ -2,8 +2,6 @@ package com.benali.excel;
 
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,18 +13,17 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.IndexedColorMap;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.fusesource.hawtbuf.ByteArrayInputStream;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ExcelGenerator {
 	private static String[] columns = {"Nom", "Prix", "RAM"};
 	private static List<ExcelPhone> ePhone = new ArrayList<>();
-	public java.io.ByteArrayInputStream generateExcel(){
-		ePhone.add(new ExcelPhone("Samsung A50", 3000, "4GB"));
-		ePhone.add(new ExcelPhone("Samsung J5", 1500, "2GB"));
+	public java.io.ByteArrayInputStream generateExcel(List<ExcelPhone> listphones){
+		for(ExcelPhone p: listphones){
+			ePhone.add(p);
+		}
 		//creating the workBook
 		Workbook wb = new XSSFWorkbook();
 		//creating the first page
