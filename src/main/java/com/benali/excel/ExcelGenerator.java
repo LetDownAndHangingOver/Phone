@@ -31,7 +31,7 @@ public class ExcelGenerator {
 		//crating a font
 		Font headerFont = wb.createFont();
 		headerFont.setBold(true);
-		headerFont.setFontHeight((short) 14);
+		headerFont.setFontHeight((short) 240);
 		headerFont.setColor(IndexedColors.RED.getIndex());
 		//creating a cell style
 		CellStyle headerCellStyle = wb.createCellStyle();
@@ -51,6 +51,7 @@ public class ExcelGenerator {
 			row.createCell(0).setCellValue(ep.getNomSmartEx());
 			row.createCell(1).setCellValue(ep.getPrixSmartEx());
 			row.createCell(2).setCellValue(ep.getRAMSmartEx());
+			rowNum++;
 		}
 		//resizing columns width
 		for(int i=0; i<columns.length; i++){
@@ -61,19 +62,16 @@ public class ExcelGenerator {
 		try {
 			wb.write(fos);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			fos.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			wb.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return new java.io.ByteArrayInputStream(fos.toByteArray());

@@ -5,6 +5,7 @@ public class ExcelPhone {
 	private String nomSmartEx;
 	private int prixSmartEx;
 	private String RAMSmartEx;
+	
 	public Long getIdSmartEx() {
 		return idSmartEx;
 	}
@@ -28,6 +29,11 @@ public class ExcelPhone {
 	}
 	public void setRAMSmartEx(String rAMSmartEx) {
 		RAMSmartEx = rAMSmartEx;
+	}
+	
+	public ExcelPhone() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public ExcelPhone(String nomSmartEx, int prixSmartEx, String rAMSmartEx) {
 		super();

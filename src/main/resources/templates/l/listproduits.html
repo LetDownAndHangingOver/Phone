@@ -3,42 +3,19 @@
 <head>
 <meta charset="ISO-8859-1" />
 <title>Phones</title>
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 </head>
 <body>
 	<th:block th:include="@{/l/_templateHeader2}"></th:block>
 	<br></br>
 	<br></br>
 	<h1 class="text-center">
-		Liste des produits <a href="/l/download">Test</a>
+		Liste des produits 
 	</h1>
-	<!-- 	<div class="container"> -->
-	<!-- 		<table class="table table-dark"> -->
-	<!-- 			<thead class="thead-light"> -->
-	<!-- 				<tr> -->
-	<!-- 					<th>Nom produit</th> -->
-	<!-- 					<th>Prix</th> -->
-	<!-- 					<th>Photo</th> -->
-	<!-- 					<th>Info</th> -->
-	<!-- 				</tr> -->
-	<!-- 			</thead> -->
-	<!-- 			<tbody> -->
-	<!-- 				<tr th:each="produit : ${produit}"> -->
-	<!-- 					<td th:text="${produit.nomProduit}"></td> -->
-	<!-- 					<td th:text="${produit.prix}"></td> -->
-	<!-- 					<td th:if="${produit.photoProduit} == Null">Pas de photo -->
-	<!-- 						disponible</td> -->
-	<!-- 					<td th:if="${produit.photoProduit} != Null"><img -->
-	<!-- 						th:src="${produit.photoProduit}" /></td> -->
-	<!-- 					<td><a -->
-	<!-- 						th:href="@{/l/prod/{ProduitId}(ProduitId=${produit.idProduit})}">Plus -->
-	<!-- 							d'info</a></td> -->
-	<!-- 				</tr> -->
-	<!-- 			</tbody> -->
-	<!-- 		</table> -->
-	<!-- 	</div> -->
-	<form action="#" th:action="@{/l/download}" method="get"
-				>
-		<input type="submit" value="Download"/>
+	<form action="#" th:action="@{/l/download}" method="get">
+		<input type="hidden"  th:value="@{${#httpServletRequest.requestURI}}" th:name="uri"/>
+		<button style="font-size:24px; position: relative; left: 230px; cursor: pointer;">Download <i class="fa fa-file-excel-o"></i></button>
 	<div class="row" th:if="${!produitList.isEmpty()}">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
@@ -55,7 +32,7 @@
 						<td th:text="${{produit.nomProduit}}">1</td>
 						<td th:text="${{produit.prix}}">http://thegame.org</td>
 						<td><a
-							th:href="@{/article/detail/{produitId}(produitId=${produit.idProduit})}">Detail</a></td>
+							th:href="@{/l/article/detail/{produitId}(produitId=${produit.idProduit})}">Detail</a></td>
 					</tr>
 				</tbody>
 			</table>

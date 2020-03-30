@@ -55,7 +55,7 @@ public class ProduitController {
 	@Autowired
 	private UserMetier UM;
 
-	private static String UPLOADED_FOLDER = "C:\\Users\\BMW\\Documents\\Upload\\";
+	private static String UPLOADED_FOLDER = "C:\\Users\\BMW\\Desktop\\WorkSpace\\Phones\\scr\\main\\webapp\\";
 
 	@RequestMapping(path = "/listProduit/{page}")
 	public String getAllProducts(Model model, @PathVariable("page") int page) {
@@ -112,20 +112,27 @@ public class ProduitController {
 		PM.saveProduit(produit);
 		return "/l/produit";
 	}
+	
+	@RequestMapping(path = "/l/article/detail/{id}")
+	public String getProduitById(@PathVariable Long id, Model model){
+		Produit article = PM.findProduitById(id);
+		model.addAttribute("article", article);
+		return "/l/articleDetail";
+	}
 
-	// @RequestMapping(path="/l/ajouterPhoto", method=RequestMethod.POST)
-	// public String uploadFile(@RequestParam("file") MultipartFile file, Model
-	// model){
-	// try {
-	// byte[] bytes = file.getBytes();
-	// Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-	// Files.write(path, bytes);
-	//
-	// } catch (IOException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// return"/l/Produit";
-	// }
+	 @RequestMapping(path="/l/ajouterPhoto", method=RequestMethod.POST)
+	 public String uploadFile(@RequestParam("file") MultipartFile file, Model
+	 model){
+	 try {
+	 byte[] bytes = file.getBytes();
+	 Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+	 Files.write(path, bytes);
+	
+	 } catch (IOException e) {
+	 // TODO Auto-generated catch block
+	 e.printStackTrace();
+	 }
+	 return"/l/Produit";
+	 }
 
 }
