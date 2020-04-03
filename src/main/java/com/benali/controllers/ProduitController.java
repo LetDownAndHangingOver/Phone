@@ -57,7 +57,7 @@ public class ProduitController {
 
 	private static String UPLOADED_FOLDER = "C:\\Users\\BMW\\Desktop\\WorkSpace\\Phones\\scr\\main\\webapp\\";
 
-	@RequestMapping(path = "/listProduit/{page}")
+	@RequestMapping(path = "/listproduits/{page}")
 	public String getAllProducts(Model model, @PathVariable("page") int page) {
 		Pageable pageable = new PageRequest(page - 1, 15);
 		Page<Produit> products = PM.listAllProduits(pageable);
@@ -120,8 +120,15 @@ public class ProduitController {
 		return "/l/articleDetail";
 	}
 
-	 @RequestMapping(path="/l/ajouterPhoto", method=RequestMethod.POST)
-	 public String uploadFile(@RequestParam("file") MultipartFile file, Model
+	 @RequestMapping(path = "/l/ajouterPhoto/", method=RequestMethod.GET)
+	 public String uploadFileGet(){
+		 System.err.println("photo");
+		// Produit p = PM.findProduitById(id);
+		 return "/l/ajouterPhoto";
+	 }
+	
+	 @RequestMapping(path="/l/ajouterPhoto/", method=RequestMethod.POST)
+	 public String uploadFile(@RequestParam(value="file") MultipartFile file, Model
 	 model){
 	 try {
 	 byte[] bytes = file.getBytes();
@@ -129,7 +136,6 @@ public class ProduitController {
 	 Files.write(path, bytes);
 	
 	 } catch (IOException e) {
-	 // TODO Auto-generated catch block
 	 e.printStackTrace();
 	 }
 	 return"/l/Produit";
