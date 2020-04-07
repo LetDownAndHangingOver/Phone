@@ -11,14 +11,14 @@
 </head>
 <body>
 
-	<th:block th:include="/_templateHeader"></th:block>
+	<th:block th:include="/l/_templateHeader2"></th:block>
 
-	<form action="#" th:action="@{/l/ajouterPhoto}" method="post"
+	<form action="#" th:action="@{/l/ajouterPhoto/}" method="post"
 		enctype="multipart/form-data">
 		<div class="tab4">
 			<p id="ins">Ajouter une image</p>
 			<input type="file" name="file" /> 
-			<input type="text" value="${id}" name="id"/>
+			<input type="text" th:value="${id}" name="id"/>
 			<input type="submit" value="Ajouter" /> <a href="/l/produit">retour</a>
 		</div>
 	</form>

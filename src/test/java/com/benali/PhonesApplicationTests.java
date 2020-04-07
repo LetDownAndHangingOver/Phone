@@ -49,7 +49,7 @@ public class PhonesApplicationTests {
 	@Test
 	@WithMockUser(roles="ADMIN")
 	public void uploadFileGetTest() throws Exception{
-		mockMvc.perform(get("/l/ajouterPhoto"))
+		mockMvc.perform(get("/l/ajouterPhoto/"))
 			//.andExpect(status().isOk())
 			.andExpect(view().name("/l/ajouterPhoto"));
 	}

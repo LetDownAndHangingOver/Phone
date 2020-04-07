@@ -11,15 +11,18 @@
 </head>
 <body>
 
-	<th:block th:include="/_templateHeader"></th:block>
+	<th:block th:include="/l/_templateHeader2"></th:block>
 
 	<form action="#" th:action="@{/l/ajouterProduit}" method="post"
 		th:object="${produit}">
-		<div class="tab4">
+		<div class="tab4" style="margin-left: 500px;">
 			<p id="ins">Libellé</p>
 			<input type="text" th:field="*{nomProduit}" />
 			<p id="ins">Prix</p>
-			<input type="text" th:field="*{prix}" /> <input type="submit"
+			<input type="text" th:field="*{prix}" /> 
+			<p id="ins">Description</p>
+			<input style="height: 90px;" type="text" th:field="*{description}" />
+			<input type="submit"
 				value="Ajouter" />
 		</div>
 	</form>

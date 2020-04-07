@@ -36,7 +36,8 @@
 		<tr th:each="produit : ${produit}">
 			<td th:text="${produit.nomProduit}"></td>
 			<td th:text="${produit.prix}"></td>
-			<td><form action="#" th:action="@{/l/ajouterPhoto}" method="get">
+			<td><form action="#" th:action="@{/l/ajouterPhoto/}" method="get">
+				<input type="hidden" th:value="${produit.idProduit}" th:name="id"/>
 				<button style="font-size:16px; cursor: pointer;">Ajouter une photo</button>
 				</form>
 			</td>
