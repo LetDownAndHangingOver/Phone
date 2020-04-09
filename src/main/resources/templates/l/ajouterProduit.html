@@ -12,10 +12,10 @@
 <body>
 
 	<th:block th:include="/l/_templateHeader2"></th:block>
-
+	<div>
 	<form action="#" th:action="@{/l/ajouterProduit}" method="post"
 		th:object="${produit}">
-		<div class="tab4" style="margin-left: 500px;">
+		<div class="tab4" style="display: table; margin-left: auto; margin-right: auto;">
 			<p id="ins">Libellé</p>
 			<input type="text" th:field="*{nomProduit}" />
 			<p id="ins">Prix</p>
@@ -26,7 +26,7 @@
 				value="Ajouter" />
 		</div>
 	</form>
-
+	</div>
 
 	<script>
 </script>
