@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8" />
+<title>Benali</title>
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/amq\_jquery\_adapter.js"></script>
+<script type="text/javascript" src="../static/js/amq.js"></script>
+<script type="text/javascript">
+	var ajaxRequest;
+	function ajaxFunction(){
+		try{
+			ajaxRequest = new XMLHttpRequest();
+		}catch(e){
+			alert("Error " + e);
+			return false;
+		}
+	}
+	function validateUser(){
+		ajaxFunction();
+		
+		ajaxRequest.onreadystatechange = processRequest;
+		
+		
+	}
+</script>
+
+<link rel="stylesheet" type="text/css"
+	href="../static/css/chatStyle.css" th:href="@{/css/chatStyle.css}" />
+</head>
+<body>
+	<th:block th:include="@{/l/_templateHeader2}"></th:block>
+	<div class="container">
+		<div class="col-md-5">
+			<div class="container">
+				<p>Chattez</p>
+				<textarea rows="5" cols="50">
+					
+				</textarea>
+				<input type="text" name="msg" class="msg" id="msg"/>
+				<button onClick="send()">Submit</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

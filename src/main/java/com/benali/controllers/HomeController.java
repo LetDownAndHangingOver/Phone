@@ -51,6 +51,17 @@ public class HomeController {
 		// User user = UM.addUser(u);
 		return "l/index";
 	}
+	
+	@RequestMapping(path="/home2")
+	public String indexTest(Model model){
+		model.addAttribute("user", new User());
+		return "index2";
+	}
+	
+	@RequestMapping(path="/l/home2")
+	public String index2Test(Model model){
+		return "l/index2";
+	}
 
 	@RequestMapping(path = "/inscription", method = RequestMethod.GET)
 	public String inscription(Model model) {

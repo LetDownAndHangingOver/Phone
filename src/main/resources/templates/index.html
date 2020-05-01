@@ -2,18 +2,34 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
 <head>
-<meta charset="utf-8" />
-<title>Benali</title>
-<link rel="stylesheet" content-type="text/css"
-	href="../static/css/styles.css" th:href="@{../static/css/styles.css}" />
 
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+
+  <title>Phone</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" 
+      th:href="@{/static/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
+  
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"/>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+
+  <!-- Plugin CSS -->
+  <link href="../static/vendor/magnific-popup/magnific-popup.css" 
+       th:href="@{/static/vendor/magnific-popup/magnific-popup.css}"  rel="stylesheet"/>
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="../static/css/creative.min.css" 
+      th:href="@{/static/css/creative.min.css}"  rel="stylesheet"/>
 
 </head>
 <body>
-	<th:block th:include="/_templateHeader"></th:block>
-	<br></br>
-	<br></br>
-	<br></br>
+
 	<div class="container">
 		<div class="jumbotron">
 			<p class="text-center">Salut</p>
@@ -57,21 +73,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- <div class="topnav" id="bas"> -->
-	<!-- <div class="tab1"> -->
-	<!--   <a class="tablinks" th:href="@{/test1}">London</a> -->
-	<!--   <a class="tablinks" th:href="@{/test4}">Rabat</a> -->
-	<!-- </div> -->
-	<!-- <div class="tab2"> -->
-	<!--   <a class="tablinks" th:href="@{/test2}">Paris</a> -->
-	<!--   <a class="tablinks" th:href="@{/test5}">New-York</a> -->
-	<!-- </div> -->
-	<!-- <div class="tab3"> -->
-	<!--   <a class="tablinks" th:href="@{/test3}">Tokyo	</a> -->
-	<!--   <a class="tablinks" th:href="@{/test6}">Lkhobz</a> -->
-	<!-- </div> -->
-	<!-- </div> -->
 
 
 	<script>

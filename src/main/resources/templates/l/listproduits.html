@@ -1,59 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1" />
-<title>Phones</title>
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+
+  <title>Phone</title>
+
+  <!-- Font Awesome Icons -->
+  <link href="../../static/vendor/fontawesome-free/css/all.min.css" 
+      th:href="@{/static/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
+  
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"/>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+
+  <!-- Plugin CSS -->
+  <link href="../../static/vendor/magnific-popup/magnific-popup.css" 
+       th:href="@{/static/vendor/magnific-popup/magnific-popup.css}"  rel="stylesheet"/>
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="../../static/css/creative.min.css" 
+      th:href="@{/static/css/creative.min.css}"  rel="stylesheet"/>
+
 </head>
 <body>
-	<th:block th:include="@{/l/_templateHeader2}"></th:block>
-	<br></br>
-	<br></br>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Benali</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" th:href="@{/logout}">Déconnexion</a>
+          </li>
+          <li class="nav-item">
+          <div class="col-md-12 text-center">
+            <form th:action="@{/l/rechercher}" style="display:inline-flex;">
+             <input class="nav-link js-scroll-trigger" type="text" placeholder="Search.." name="search"></input>
+             <button class="btn btn-primary btn-xl" style="padding: .25rem .25rem!important;" type="submit">
+               <i class="fa fa-search">Submit!</i>
+             </button>
+            </form>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="masthead" style="min-height:275rem;">
 	<h1 class="text-center">
 		Liste des produits 
 	</h1>
-	<form action="#" th:action="@{/l/download}" method="get">
-		<input type="hidden"  th:value="@{${#httpServletRequest.requestURI}}" th:name="uri"/>
-		<button style="font-size:24px; position: relative; left: 230px; cursor: pointer;">Download <i class="fa fa-file-excel-o"></i></button>
-	<div class="row" th:if="${!produitList.isEmpty()}">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<table id="link-list" class="table table-dark" style="width: 100%">
-				<thead class="thead-light">
-					<tr>
-						<th>Nom</th>
-						<th>Prix</th>
-						<th>Detail</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="produit : ${produitList}">
-						<td th:text="${{produit.nomProduit}}">1</td>
-						<td th:text="${{produit.prix}}">http://thegame.org</td>
-						<td><a
-							th:href="@{/l/article/detail/{produitId}(produitId=${produit.idProduit})}">Detail</a></td>
-					</tr>
-				</tbody>
-			</table>
+	<div class="container">
+<!-- 		<div class="row justify-content-center"> -->
+<!-- 			<form action="#" th:action="@{/l/download}" method="get"> -->
+<!-- 				<div class="form-group"> -->
+<!-- 					<input type="hidden"  th:value="@{${#httpServletRequest.requestURI}}" th:name="uri"/> -->
+<!-- 					<button class="btn btn-block mybtn btn-primary tx-tfm">Download <i class="fas fa-file-excel"></i></button> -->
+<!-- 				</div> -->
+<!-- 				<div class="row" th:if="${!produitList.isEmpty()}"> -->
+<!-- 					<table class="table table-bordered table-primary "> -->
+<!-- 						<thead> -->
+<!-- 							<tr> -->
+<!-- 								<th>Nom</th> -->
+<!-- 								<th>Prix</th> -->
+<!-- 								<th>Detail</th> -->
+<!-- 							</tr> -->
+<!-- 						</thead> -->
+<!-- 						<tbody> -->
+<!-- 							<tr th:each="produit : ${produitList}"> -->
+<!-- 								<td th:text="${{produit.nomProduit}}">1</td> -->
+<!-- 								<td th:text="${{produit.prix}}">http://thegame.org</td> -->
+<!-- 								<td><a -->
+<!-- 									th:href="@{/l/article/detail/{produitId}(produitId=${produit.idProduit})}">Detail</a></td> -->
+<!-- 							</tr> -->
+<!-- 						</tbody> -->
+<!-- 					</table> -->
+<!-- 				</div> -->
+<!-- 			</form> -->
+<!-- 		</div> -->
+<ul th:each="produit : ${produitList}">
+	<div class="row justify-content-center">
+		<div class="card" style="width:18rem">
+		<img th:if="${produit.photoProduit}" th:src="|/static/images/${produit.photoProduit}|" src="../static/images/${produit.photoProduit}" 
+			th:alt="|/static/images/${produit.photoProduit}|"
+		class="bd-placeholder-img card-img-top" width="100%" height="180">
+			<title><p th:text="${{produit.nomProduit}}"></p></title>
+		</img>
+		
+		<img th:if="${produit.photoProduit == null}" 
+			th:alt="|blablabla|"
+		class="bd-placeholder-img card-img-top" width="100%" height="180">
+			<title>Rien</title>
+		</img>
+			<div class="card-body">
+				<h4 class="card-title"><p th:text="${{produit.nomProduit}}">ttt</p></h4>
+				<p class="card-text"><p th:text="${{produit.description}}"></p></p>
+			</div>
 		</div>
-		<div class="col-md-2"></div>
 	</div>
-	</form>
-	
-	<div class="row" th:fragment="pagination">
-		<div class="col-md-2"></div>
-		<div class="col-md-8">
-			<nav aria-label="Pagination">
-				<ul class="pagination justify-content-center">
-					<li class="page-item" th:each="pageNumber : ${pageNumbers}">
-						<a class="page-link" th:href="@{|/l/listproduits/${pageNumber}|}"
-						th:text="${pageNumber}"></a>
-					</li>
-				</ul>
-			</nav>
+</ul>
+
+	<div class="page-link">
+		<div class="row justify-content-center">
+			<div class="row" th:fragment="pagination">
+				<div class="col-md-2"></div>
+				<div class="col-md-8">
+					<nav aria-label="Pagination">
+						<ul class="pagination justify-content-center">
+							<li class="page-item" th:each="pageNumber : ${pageNumbers}">
+								<a class="page-link" th:href="@{|/l/listproduits/${pageNumber}|}"
+								th:text="${pageNumber}"></a>
+							</li>
+						</ul>
+					</nav>
+				</div>	
+			</div>
 		</div>
-		<div class="col-md-2"></div>
 	</div>
+</div>
+
+</header>
+	<section>
+
+	</section>
 </body>
 </html>

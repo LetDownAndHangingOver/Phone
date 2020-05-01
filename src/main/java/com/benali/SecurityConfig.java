@@ -31,11 +31,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     	http
     		.authorizeRequests()
     		.antMatchers(   "/",
+    						"/static/**",
                             "/js/**",
                             "/css/**",
                             "/img/**",
                             "/webjars/**").permitAll()
     		.antMatchers("/home").permitAll()
+    		.antMatchers("/home2").permitAll()
     		.antMatchers("/inscription").permitAll()
     		.antMatchers("/inscrit").permitAll()
     		.antMatchers("/welcome").permitAll()
@@ -46,7 +48,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     		.formLogin()
     		.loginPage("/connexion")
     		.permitAll()
-    		.defaultSuccessUrl("/l/home", true)
+    		.defaultSuccessUrl("/l/home2", true)
     		.failureUrl("/fail")
     	.and()
     		.logout()
