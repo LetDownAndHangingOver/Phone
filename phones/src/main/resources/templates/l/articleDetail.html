@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" /> 
+<title>Phones</title>
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+	<th:block th:include="@{/l/_templateHeader2}"></th:block>
+	<br></br>
+	<br></br>
+	<h1 class="text-center">
+		Article en detail	</h1>
+	<div class="row">
+		<div class="col-md-2"></div> 
+		<div class="col-md-4">
+			<img  th:src="|/static/images/${article.photoProduit}|" src="../static/images/${article.photoProduit}" 
+			th:alt="|/static/images/${article.photoProduit}|" style="width: inherit;
+    height: inherit;" />
+		</div>
+		<div class="col-md-4">
+			<table id="link-list" class="table table-dark" style="width: 100%">
+				<thead class="thead-light">
+				</thead>
+				<tbody>
+					<tr >
+						<th>Nom</th>
+						<td th:text="${article.nomProduit}">1</td>
+					</tr>
+					<tr>
+						<th>Prix</th>
+						<td th:text="${article.prix}">http://thegame.org</td>						
+					</tr>
+					<tr>
+						<th>Description</th>
+						<td th:text="${article.description}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</body>
+</html>

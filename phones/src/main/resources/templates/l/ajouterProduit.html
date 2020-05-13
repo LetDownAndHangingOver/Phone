@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8" />
+<title>Benali</title>
+  <!-- Font Awesome Icons -->
+  <link href="../../static/vendor/fontawesome-free/css/all.min.css" 
+      th:href="@{/static/vendor/fontawesome-free/css/all.min.css}" rel="stylesheet" type="text/css"/>
+  
+ 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet"/>
+  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'/>
+
+  <!-- Plugin CSS -->
+  <link href="../../static/vendor/magnific-popup/magnific-popup.css" 
+       th:href="@{/static/vendor/magnific-popup/magnific-popup.css}"  rel="stylesheet"/>
+
+  <!-- Theme CSS - Includes Bootstrap -->
+  <link href="../../static/css/creative.min.css" 
+      th:href="@{/static/css/creative.min.css}"  rel="stylesheet"/>
+
+
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Benali</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">A propos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" th:href="@{/logout}">Déconnexion</a>
+          </li>
+          <li class="nav-item">
+          <div class="col-md-12 text-center">
+            <form th:action="@{/l/rechercher}" style="display:inline-flex;">
+             <input class="nav-link js-scroll-trigger" type="text" placeholder="Search.." name="search"></input>
+             <button class="btn btn-primary btn-xl" style="padding: .25rem .25rem!important;" type="submit">
+               <i class="fa fa-search">Submit!</i>
+             </button>
+            </form>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<header class="masthead">
+	<div class="container h-100">
+		<div class="container h-100">
+			<div class="row h-100 align-items-center justify-content-center text-center">
+				<div class="col-lg-10 align-self-end">
+					<h2 class="text-uppercase text-white font-weight-bold ">Wet market</h2>
+					<hr class="divider my-4"/>
+				</div>
+			<div class="container">
+				<div class="row justify-content-center">
+					<form action="#" th:action="@{/l/ajouterProduit}" method="post" th:object="${produit}">
+						<div  class="form-group">
+							<p id="ins">Libellé</p>
+							<input type="text" class="form-control" th:field="*{nomProduit}" />
+						</div>
+						<div class="form-group">
+							<p id="ins">Prix</p>
+							<input type="text" class="form-control" th:field="*{prix}" /> 
+						</div>
+						<div class="form-group">
+							<p id="ins">Description</p>
+							<textarea class="form-control" style="height: 90px;" th:field="*{description}"></textarea>
+							<input class="btn btn-block mybtn btn-primary tx-tfm" type="submit" value="Ajouter" />
+						</div>
+					</form>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</header>
+	<div>
+	<form action="#" th:action="@{/l/ajouterProduit}" method="post"
+		th:object="${produit}">
+		<div class="tab4" style="display: table; margin-left: auto; margin-right: auto;">
+			<p id="ins">Libellé</p>
+			<input type="text" th:field="*{nomProduit}" />
+			<p id="ins">Prix</p>
+			<input type="text" th:field="*{prix}" /> 
+			<p id="ins">Description</p>
+			<input style="height: 90px;" type="text" th:field="*{description}" />
+			<input type="submit"
+				value="Ajouter" />
+		</div>
+	</form>
+	</div>
+
+	<script>
+</script>
+</body>
+
+</html>

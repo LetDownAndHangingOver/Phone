@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8" />
+<title>Benali</title>
+<link rel="stylesheet" content-type="text/css"
+	href="../static/css/styles.css" th:href="@{../static/css/styles.css}" />
+
+
+</head>
+<body>
+
+	<th:block th:include="/l/_templateHeader2"></th:block>
+
+	<form action="#" th:action="@{/l/ajouterPhoto/}" method="post"
+		enctype="multipart/form-data">
+		<div class="tab4">
+			<p id="ins">Ajouter une image</p>
+			<input type="file" name="file" /> 
+			<input type="text" th:value="${id}" name="id"/>
+			<input type="submit" value="Ajouter" /> <a href="/l/produit">retour</a>
+		</div>
+	</form>
+
+
+	<script>
+</script>
+</body>
+
+</html>

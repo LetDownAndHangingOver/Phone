@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8" />
+<title>Benali</title>
+</head>
+<body>
+	<th:block th:include="@{/l/_templateHeader2}"></th:block>
+	<div class="container">
+		<div class="row">
+			<table class="table table-dark">
+				<thead class="thead-light">
+				<tr>
+					<th>Nom Smartphone</th>
+					<th>Prix du Smartphone</th>
+					<th>RAM du Smartphone</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="smart1 : ${smarts1}">
+					<td th:text="${smart1.nomSmartPhone}"></td>
+					<td th:text="${smart1.prixSmartPhone}"></td>
+					<td th:text="${smart1.RAMSmartPhone}"></td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">
+			<form action="#" th:action="@{/l/com}" method="post"
+				th:object="${compsdb}">
+				<input type="text" th:value="${smarts1.idSmartPhone}" 
+				th:text="${smarts1.idSmartPhone}" th:field="*{idsmart2}"/>
+				<select class="form-control" th:field="*{idsmart1}">
+					<option value="">--</option>
+					<option th:each="smart : ${smarts2}"
+							 th:value="${smart.idSmartPhone}" 
+							 th:text="${smart.nomSmartPhone}"/>
+				</select>
+				<input type="submit" />					
+			</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

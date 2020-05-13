@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8" />
+<title>Benali</title>
+<link rel="stylesheet" content-type="text/css"
+	href="../static/css/styles.css" th:href="@{../static/css/styles.css}" />
+
+
+</head>
+<body>
+	<th:block th:include="/l/_templateHeader2"></th:block>
+
+	<div class="topnav" id="bas">
+		<div class="tab1">
+			<a class="tablinks" th:href="@{/l/ajouterProduit}">Ajouter un
+				produit</a> <a class="tablinks" th:href="@{/listProduit}">Tous les
+				produits</a>
+		</div>
+		<div class="tab2">
+			<a class="tablinks" th:href="@{/test2}">Paris</a> <a class="tablinks"
+				th:href="@{/test5}">New-York</a>
+		</div>
+		<div class="tab3">
+			<a class="tablinks" th:href="@{/test3}">Tokyo </a> <a
+				class="tablinks" th:href="@{/test6}">Lkhobz</a>
+		</div>
+	</div>
+	<table>
+		<tr>
+			<th>Nom produit</th>
+			<th>Prix</th>
+			<th>Photo</th>
+		</tr>
+		<tr th:each="produit : ${produit}">
+			<td th:text="${produit.nomProduit}"></td>
+			<td th:text="${produit.prix}"></td>
+			<td><form action="#" th:action="@{/l/ajouterPhoto/}" method="get">
+				<input type="hidden" th:value="${produit.idProduit}" th:name="id"/>
+				<button style="font-size:16px; cursor: pointer;">Ajouter une photo</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+
+	<script>
+</script>
+</body>
+
+</html>

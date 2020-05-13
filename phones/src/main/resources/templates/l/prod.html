@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1" />
+
+</head>
+<body>
+	<th:block th:include="/l/_templateHeader2"></th:block>
+	<div class="container">
+		<table class="table table-dark">
+			<thead class="thead-light">
+				<tr>
+					<th>Nom produit</th>
+					<th>Prix</th>
+					<th>Photo</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:text="${prod.nomProduit}"></td>
+					<td th:text="${prod.prix}"></td>
+					<td th:if="${prod.photoProduit} == Null">Pas de photo
+						disponible</td>
+					<td th:if="${prod.photoProduit} != Null"><img
+						th:src="${prod.photoProduit}" /></td>
+					<td>Description</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

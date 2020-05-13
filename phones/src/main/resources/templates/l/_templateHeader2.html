@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.utlraq.net.nz/thymeLeaf/Layout">
+<head>
+<meta charset="utf-8" />
+<title>Phones</title>
+<link rel="stylesheet" href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" href="../static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg fixed-top  navbar-dark bg-dark">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" th:href="@{/l/home}">Benali</a>
+				</div>
+				<div class="collapse navbar-collapse" id="navbarNavDropdown">
+					<ul class="navbar-nav">
+						<a class="nav-link" th:href="@{/l/home}">Home</a>
+						<a class="nav-link" th:href="@{/l/about}">A Propos</a>
+						<a class="nav-link" th:href="@{/l/contact}">Contact</a>
+						<a class="nav-link" th:href="@{/logout}">Déconnexion</a>
+					</ul>
+				</div>
+				<div class="search-container">
+					<form th:action="@{/l/rechercher}">
+						<input type="text" placeholder="Search.." name="search"></input>
+						<button type="submit">
+							<i class="fa fa-search">Submit!</i>
+						</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+	</header>
+</body>
+</html>
