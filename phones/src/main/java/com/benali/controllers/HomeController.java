@@ -1,7 +1,8 @@
 package com.benali.controllers;
 
 
-import java.net.URI;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -9,27 +10,25 @@ import java.util.Properties;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.benali.entitites.ContactForm;
 import com.benali.entitites.MailDB;
 import com.benali.entitites.Produit;
+import com.benali.entitites.Role;
 import com.benali.entitites.User;
 import com.benali.metier.MailDBMetier;
 import com.benali.metier.ProduitMetier;
@@ -37,13 +36,19 @@ import com.benali.metier.UserMetier;
 
 @Controller
 public class HomeController {
+	
 	@Autowired
 	private UserMetier UM;
+	
 	@Autowired
 	private ProduitMetier PM;
+	
 	@Autowired
 	private MailDBMetier MDBM;
 
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
 	@RequestMapping(path = "/home")
 	public String index() {
 		return "index";
@@ -76,10 +81,15 @@ public class HomeController {
 	public String inscription(User user) {
 		System.err.println("User = " + user.getPseudo());
 		if (user != null) {
-			System.err.println(UM.findUser(user.getPseudo()).isPresent());
 			if (!UM.findUser(user.getPseudo()).isPresent()) {
+				String encodedPass = bCryptPasswordEncoder.encode(user.getPassWord());
+				user.setPassWord(encodedPass);
+				Collection<Role> roles = new ArrayList<Role>();
+				Role e = new Role("ROLE_USER", "Utilisateur normal");
+				roles.add(e);
+				user.setRoles(roles);
+				user.setActived(true);
 				UM.addUser(user);
-				System.out.println("user created" + user.getPseudo());
 				return "inscrit";
 			}
 		}
