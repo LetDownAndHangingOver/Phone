@@ -15,6 +15,7 @@ class PhonesApplicationTests {
 	@Test
 	public void getallProductsTest() throws Exception {
 		mockMvc.perform(get("/l/listproduits/1")).andExpect(status().isOk());
+		
 	}
 
 }
