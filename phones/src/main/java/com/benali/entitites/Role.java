@@ -11,6 +11,10 @@ public class Role implements Serializable{
 	private String role;
 	private String description;
 	
+	public Role() {
+		
+	}
+	
 	public Role(String role, String description) {
 		super();
 		this.role = role;
