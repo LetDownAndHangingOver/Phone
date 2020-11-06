@@ -85,7 +85,7 @@ public class HomeController {
 				String encodedPass = bCryptPasswordEncoder.encode(user.getPassWord());
 				user.setPassWord(encodedPass);
 				Collection<Role> roles = new ArrayList<Role>();
-				Role e = new Role("ROLE_USER", "Utilisateur normal");
+				Role e = new Role("user", "Utilisateur normal");
 				roles.add(e);
 				user.setRoles(roles);
 				user.setActived(true);

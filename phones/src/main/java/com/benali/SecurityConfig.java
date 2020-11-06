@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -20,12 +21,13 @@ import com.benali.dao.UserRepository;
 @EnableGlobalMethodSecurity(securedEnabled=true)
 @EnableWebSecurity
 @Configuration
+@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	private DataSource dataSource;
 	
 	@Bean
-	PasswordEncoder passwordEncoder() {
+	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
